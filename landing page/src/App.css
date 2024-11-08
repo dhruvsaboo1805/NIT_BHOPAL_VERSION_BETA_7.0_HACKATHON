@@ -1,0 +1,98 @@
+/* Reset and Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html, .app {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Navbar Styles */
+.navbar {
+  position: absolute; /* Position navbar above hero section */
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent */
+  border-radius: 50%;
+  margin: 20px auto;
+  max-width: 90%;
+  z-index: 10; /* Ensure navbar stays on top of hero section */
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: 32px;
+  width: 32px;
+  margin-right: 8px;
+}
+
+.logo-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.navbar-links li {
+  cursor: pointer;
+  color: #333;
+  font-size: 1rem;
+}
+
+.navbar-signin {
+  padding: 8px 16px;
+  border: 1px solid #333;
+  border-radius: 20px;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-signin:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Hero Section Styles */
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px); /* Adjust height for navbar */
+  background-image: url("./assets/19366.png");
+  background-size: cover;
+  text-align: center;
+  padding-top: 60px; /* Adjust for navbar height */
+}
+
+.hero-text {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.hero-icon {
+  height: 48px;
+  width: 48px;
+  margin: 0 16px;
+}

@@ -1,0 +1,50 @@
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 10px;
+    width: 90%; /* Reduced width */
+    height: auto; /* Let height adjust based on content */
+    box-sizing: border-box; /* Ensures padding is included in width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1); /* Keep card scale normal or adjust as needed */
+    margin-top: 100px;
+  }
+
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    padding: 20px;
+    margin: 0 auto; /* Centers the container */
+    box-sizing: border-box;
+    width: 100%; /* Full width */
+    max-width: 100%; /* Prevent container from exceeding screen width */
+    overflow-x: hidden;
+  }
+  
+  .card-content {
+    flex: 1;
+    margin-right: 16px;
+  }
+  
+  .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .card-description {
+    margin: 8px 0 0;
+    color: #555;
+  }
+  
+  .card-image img {
+    width: 200px;
+    height: 150px;
+    border-radius: 4px;
+  }
+  
