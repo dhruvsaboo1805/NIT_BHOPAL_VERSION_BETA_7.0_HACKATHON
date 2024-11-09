@@ -1,36 +1,38 @@
-.home_card {
-  background-color: #333;
+ /* Individual Card */
+ .home_card {
+  background-color: #f8f9fa; /* Soft off-white background for cards */
+  border: 1px solid #dfe4ea;
   border-radius: 10px;
-  color: #ffffff;
-  width: 300px;
-  padding: 15px;
-  margin: 10px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .home_card:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff; /* White background on hover for contrast */
 }
 
-.home_card-image {
+.home_card img {
   width: 100%;
-  height: auto;
+  height: 150px;
   border-radius: 8px;
-  margin-bottom: 10px;
+  object-fit: cover;
+  border: 1px solid #e3e3e3; /* Light border around image */
 }
 
-.home_card-content {
-  padding: 5px;
-}
-
+/* Card Title */
 .home_card-title {
   font-size: 18px;
-  margin: 10px 0;
+  color: #4b7bec; /* Soft blue to match navbar color */
+  margin: 15px 0 10px;
+  font-weight: 600;
 }
 
+/* Card Description */
 .home_card-description {
   font-size: 14px;
-  color: #cfcfcf;
+  color: #8395a7; /* Muted blue-gray for description text */
 }

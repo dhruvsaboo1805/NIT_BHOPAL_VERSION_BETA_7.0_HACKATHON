@@ -4,6 +4,7 @@ import HomeCards from "../components/HomeCards";
 import HomeCardsData from "../HomeCardsData";
 import data from "../ProblemsData";
 import { useTable } from "react-table";
+import Navbar from "../components/Navbar";
 
 const columns = [
   {
@@ -31,22 +32,7 @@ const Home = () => {
   return (
     <div>
       {/* NavBar */}
-      <div className="navbar">
-        <div className="navbar-left">
-          <div className="logo">⚙️</div>
-          <nav>
-            {/* <a href="#explore">Explore</a> */}
-            <a href="#problems">Problems</a>
-            <a href="#contest">Contest</a>
-            <a href="#discuss">Discuss</a>
-          </nav>
-        </div>
-        <div className="navbar-right">
-          <div className="icon">🔔</div>
-          <div className="flame">🔥 257</div>
-          <div className="profile">👤</div>
-        </div>
-      </div>
+      <Navbar />
 
       {/* Cards */}
       <div className="home_card-container">
