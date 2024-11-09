@@ -78,6 +78,7 @@ const Home = () => {
   const [timeLeft, setTimeLeft] = useState(20);
   const [selectedOption, setSelectedOption] = useState(null);
 
+
   useEffect(() => {
     axios.get(ApiUrl).then((response) => {
       setData(response.data.questions);
