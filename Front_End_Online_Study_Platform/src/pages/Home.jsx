@@ -1,31 +1,103 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Home.css";
 import HomeCards from "../components/HomeCards";
-import HomeCardsData from "../HomeCardsData";
-import data from "../ProblemsData";
-import { useTable } from "react-table";
+import TopicStudy from "../TopicStudy";
 import Navbar from "../components/Navbar";
+import { useTable } from "react-table";
+import axios from "axios"; // Importing axios
+
+const ApiUrl = "https://version-app-lac.vercel.app/question-list";
 
 const columns = [
   {
     Header: "Status",
     accessor: "status",
+    Cell: ({ value }) => {
+      if (value === "active") {
+        return ""; 
+      } else if (value === "solved") {
+        return "✔️"; 
+      }
+      return "";
+    },
+    style: {
+      textAlign: "center",
+    },
   },
   {
     Header: "Title",
-    accessor: "title",
+    accessor: "questionName",
   },
+  // {
+  //   Header: "Solution",
+  //   accessor: "solution",
+  //   Cell: ({ value }) => (value ? <a href="#">{value}</a> : ""),
+  // },
   {
-    Header: "Solution",
-    accessor: "solution",
-    Cell: ({ value }) => (value ? <a href="#">{value}</a> : ""),
+    Header: "Topics",
+    accessor: "topicTags",
+    Cell: ({ value }) => (
+      <div>
+        {value && value.length > 0 ? (
+          value.map((topic, index) => (
+            <span
+              key={index}
+              style={{
+                display: "inline-block",
+                backgroundColor: "#f0f0f0",
+                padding: "3px 8px",
+                margin: "2px",
+                borderRadius: "12px",
+                fontSize: "12px",
+              }}
+            >
+              {topic}
+            </span>
+          ))
+        ) : (
+          <span style={{ fontStyle: "italic", color: "gray" }}>
+            No topics available
+          </span>
+        )}
+      </div>
+    ),
   },
   {
     Header: "Difficulty",
     accessor: "difficulty",
+    Cell: ({ value }) => {
+      let difficultyColor = "";
+      if (value === "easy") {
+        difficultyColor = "#5cb85c"; 
+      } else if (value === "medium") {
+        difficultyColor = "#f0ad4e"; 
+      } else if (value === "hard") {
+        difficultyColor = "#d9534f"; 
+      }
+      return (
+        <span style={{ color: difficultyColor, fontWeight: "bold" }}>
+          {value.charAt(0).toUpperCase() + value.slice(1)}
+        </span>
+      );
+    },
   },
 ];
+
 const Home = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+   
+    axios
+      .get(ApiUrl)
+      .then((response) => {
+        setData(response.data.questions); 
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data });
 
@@ -36,12 +108,12 @@ const Home = () => {
 
       {/* Cards */}
       <div className="home_card-container">
-        {HomeCardsData.map((card) => (
+        {TopicStudy.map((card) => (
           <HomeCards
             key={card.id}
-            imgSrc={card.imgSrc}
-            title={card.title}
-            description={card.description}
+            imgSrc={card.image}
+            title={card.topicName}
+            description= {card.description}
           />
         ))}
       </div>
@@ -71,10 +143,16 @@ const Home = () => {
         <input type="text" placeholder="Search questions" />
       </div>
 
-      {/* tables of problems */}
+      {/* Tables of problems */}
       <table
         {...getTableProps()}
-        style={{ border: "solid 1px black", width: "100%", textAlign: "left" }}
+        style={{
+          border: "solid 1px black",
+          width: "95%",
+          textAlign: "left",
+          borderCollapse: "collapse",
+          margin: "0 auto",
+        }}
       >
         <thead>
           {headerGroups.map((headerGroup) => (
@@ -82,7 +160,12 @@ const Home = () => {
               {headerGroup.headers.map((column) => (
                 <th
                   {...column.getHeaderProps()}
-                  style={{ padding: "10px", borderBottom: "solid 1px gray" }}
+                  style={{
+                    padding: "10px",
+                    borderBottom: "solid 1px gray",
+                    backgroundColor: "#f4f4f4",
+                    textAlign: "center",
+                  }}
                 >
                   {column.render("Header")}
                 </th>
@@ -98,7 +181,11 @@ const Home = () => {
                 {row.cells.map((cell) => (
                   <td
                     {...cell.getCellProps()}
-                    style={{ padding: "10px", borderBottom: "solid 1px gray" }}
+                    style={{
+                      padding: "10px",
+                      borderBottom: "solid 1px gray",
+                      textAlign: "center",
+                    }}
                   >
                     {cell.render("Cell")}
                   </td>

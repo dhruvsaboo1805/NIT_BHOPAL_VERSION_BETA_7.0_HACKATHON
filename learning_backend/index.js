@@ -3,10 +3,12 @@ const mongoose = require('mongoose');
 const questionRoutes = require('./routes/questionRoutes');  // Import question routes
 const articleRoutes = require('./routes/articleRoutes');    // Import article routes
 const userRepoRoutes = require('./routes/userRepoRoutes');  // Import user repository routes
-require('dotenv').config();  // Load environment variables from .env file
+require('dotenv').config();  
 
+const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 8000;
+app.use(cors({ origin: true })); 
 
 // Middleware to parse JSON bodies
 app.use(express.json());
