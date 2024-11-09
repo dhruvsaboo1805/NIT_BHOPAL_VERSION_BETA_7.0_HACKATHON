@@ -39,4 +39,4 @@ async function createUser(req, res) {
   }
 }
 
-module.exports = { createUser, updateSolvedQuestion }; 
+module.exports = { createUser }; 

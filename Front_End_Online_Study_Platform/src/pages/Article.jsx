@@ -4,7 +4,7 @@ import "../styles/Article.css";
 import Navbar from "../components/Navbar";
 import ArticleCard from "../components/ArticleCard";
 
-const apiUrl = "https://version-app.vercel.app/article-list";
+const apiUrl = "https://version-app-lac.vercel.app/article-list";
 
 const Article = () => {
   // State to store articles
@@ -16,9 +16,9 @@ const Article = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await axios.get(apiUrl); // Use Axios with GET request
+        const response = await axios.get(apiUrl); 
         console.log("after fetching");
-        setArticles(response.data.articles); // Set articles in state
+        setArticles(response.data.articles); 
       } catch (err) {
         setError(err.message);
       } finally {
