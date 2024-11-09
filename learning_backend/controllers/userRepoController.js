@@ -82,4 +82,30 @@ async function updateSolvedQuestion(req, res) {
     return res.status(500).json({ message: 'Error updating solved question', error: error.message });
   }
 }
-module.exports = { createUser, updateSolvedQuestion };
+
+  // Controller to get a user by email
+async function getUserByEmail(req, res) {
+  const { email } = req.body;  // Expected field: email
+  
+  try {
+    // Find the user by email, excluding sensitive fields like password
+    const user = await UserRepo.findOne({ email }, { password: 0 });
+
+    // If the user is not found, return a 404 response
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Return the user data in the response
+    return res.status(200).json({
+      message: 'User retrieved successfully',
+      user,
+    });
+  } catch (error) {
+    console.error('Error fetching user by email:', error);
+    return res.status(500).json({ message: 'Error fetching user', error: error.message });
+  }
+}
+
+
+module.exports = { createUser, updateSolvedQuestion ,getUserByEmail};

@@ -17,7 +17,8 @@ const Navbar = () => {
         <div className="navbar-right">
           <div className="icon">🔔</div>
           <div className="flame">🔥 257</div>
-          <div className="profile">👤</div>
+          <div className="profile"><a href="/profile">👤</a></div>
+
         </div>
       </div>
   )
