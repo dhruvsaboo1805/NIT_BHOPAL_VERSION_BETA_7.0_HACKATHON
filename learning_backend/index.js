@@ -1,8 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const questionRoutes = require('./routes/questionRoutes');  // Import question routes
-const articleRoutes = require('./routes/articleRoutes');    // Import article routes
-const userRepoRoutes = require('./routes/userRepoRoutes');  // Import user repository routes
+const questionRoutes = require('./routes/questionRoutes');  
+const articleRoutes = require('./routes/articleRoutes');    
+const userRepoRoutes = require('./routes/userRepoRoutes');  
 require('dotenv').config();  
 
 const cors = require('cors');
@@ -28,9 +28,9 @@ app.get('/', (req, res) => {
 });
 
 // Use routes for each API
-app.use('/user', userRepoRoutes);  // Correct usage of the route middleware
-app.use('/question-list', questionRoutes);  // Correct usage of the route middleware
-app.use('/article-list', articleRoutes);  // Correct usage of the route middleware
+app.use('/user', userRepoRoutes);  
+app.use('/question-list', questionRoutes);  
+app.use('/article-list', articleRoutes);  
 
 // Error handling middleware (optional but recommended)
 app.use((err, req, res, next) => {

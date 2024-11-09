@@ -39,4 +39,47 @@ async function createUser(req, res) {
   }
 }
 
-module.exports = { createUser }; 
+async function updateSolvedQuestion(req, res) {
+  const { email, questionName } = req.body;  // Expected fields: email, questionName
+
+  try {
+    // Find the user by email
+    const user = await UserRepo.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Check if the question has already been solved
+    if (user.solvedQuestions.includes(questionName)) {
+      return res.status(400).json({ message: 'Question already solved' });
+    }
+
+    // Update the solved questions array and increment the counters
+    user.solvedQuestions.push(questionName);
+    user.numQuestionsSolved += 1;
+    
+    // Update the streak and lastSolvedDate fields
+    const today = new Date();
+    const lastSolvedDate = user.lastSolvedDate ? new Date(user.lastSolvedDate) : null;
+
+    // Check if the last solved date was yesterday for streak continuity
+    if (lastSolvedDate && (today - lastSolvedDate) / (1000 * 60 * 60 * 24) <= 1) {
+      user.streak += 1;  // Increment streak
+    } else {
+      user.streak = 1;  // Reset streak to 1 if it's a new streak
+    }
+    user.lastSolvedDate = today;
+
+    // Save the updated user data
+    await user.save();
+
+    return res.status(200).json({
+      message: 'Solved question updated successfully',
+      user,
+    });
+  } catch (error) {
+    console.error('Error updating solved question:', error);
+    return res.status(500).json({ message: 'Error updating solved question', error: error.message });
+  }
+}
+module.exports = { createUser, updateSolvedQuestion };
