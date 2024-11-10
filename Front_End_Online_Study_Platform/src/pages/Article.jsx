@@ -3,6 +3,8 @@ import axios from "axios";
 import "../styles/Article.css";
 import Navbar from "../components/Navbar";
 import ArticleCard from "../components/ArticleCard";
+import dsa from "../assets/dsa.png"
+import Loader from "../components/Loader";
 
 const apiUrl = "https://version-app-lac.vercel.app/article-list";
 
@@ -44,14 +46,14 @@ const Article = () => {
       {/* Article Cards */}
       <div className="articles-container">
         {loading ? (
-          <p>Loading articles...</p>
+          <Loader />
         ) : error ? (
           <p>Error loading articles: {error}</p>
         ) : (
           articles.map((article) => (
             <ArticleCard
               key={article._id}
-              img="sdhkh.png" // Replace with actual image URL if available
+              img={dsa} // Replace with actual image URL if available
               title={article.title}
               content={article.content}
               topicTags={article.topicTags}

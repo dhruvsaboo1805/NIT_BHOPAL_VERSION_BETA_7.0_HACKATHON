@@ -1,27 +1,28 @@
-import React from 'react'
+import React from 'react';
 import "../styles/Navbar.css";
+import logo from "../assets/logo.png";
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <div className="navbar">
-        <div className="navbar-left">
-          <div className="logo">⚙️</div>
-          <nav>
-            {/* <a href="#explore">Explore</a> */}
-            <a href="/">Problems</a>
-            <a href="#contest">Contest</a>
-            <a href="#discuss">Discuss</a>
-            <a href="/article">Articles</a>
-          </nav>
+      <div className="navbar-left">
+        <div className="logo">
+          <img src={logo} alt="" className='navbar_logo'/>
         </div>
-        <div className="navbar-right">
-          <div className="icon">🔔</div>
-          <div className="flame">🔥 257</div>
-          <div className="profile"><a href="/profile">👤</a></div>
-
-        </div>
+        <nav>
+          <a href="/">Problems</a>
+          <a href="/contest">Contest</a>
+          <a href="#discuss">Discuss</a>
+          <a href="/article">Articles</a>
+        </nav>
       </div>
-  )
-}
+      <div className="navbar-right">
+        <div className="icon">🔔</div>
+        <div className="flame">🔥 {props.streak} 0</div>  
+        <div className="profile"><a href="/profile">👤</a></div>
+      </div>
+    </div>
+  );
+};
 
-export default Navbar
+export default Navbar;

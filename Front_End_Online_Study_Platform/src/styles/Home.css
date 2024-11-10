@@ -146,7 +146,7 @@ nav a:hover {
 .close-button {
   background-color: #dc3545;
   color: white;
-  padding: 10px 20px;
+  padding: 5px 10px;
   border: none;
   border-radius: 5px;
   font-size: 16px;
@@ -157,4 +157,48 @@ nav a:hover {
 
 .close-button:hover {
   background-color: #c82333;
+}
+
+.table {
+  width: 95%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-header {
+  background-color: #f4f4f4;
+}
+
+.table-header-cell {
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+
+.table-row {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.table-row:hover {
+  background-color: #f1f1f1;
+}
+
+.table-cell {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  color: #555;
+}
+
+.table-cell:first-child {
+  font-weight: bold;
+}
+
+.home_hero_heading{
+  margin: 12px;
+  margin-left: 50px;
+
 }

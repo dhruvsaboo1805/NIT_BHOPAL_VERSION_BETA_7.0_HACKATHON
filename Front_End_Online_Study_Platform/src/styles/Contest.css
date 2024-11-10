@@ -1,0 +1,119 @@
+.contest-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .hero-section {
+    text-align: center;
+    background-color: #f3f4f6;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: 10px;
+  }
+  
+  .hero-section h1 {
+    font-size: 2em;
+    color: #333;
+  }
+  
+  .hero-section p {
+    color: #555;
+    margin: 10px 0;
+  }
+  
+  .start-button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    /* margin-top: 20px; */
+    margin:20px;
+  }
+  
+  .start-button:hover {
+    background-color: #45a049;
+  }
+  
+  .timer {
+    font-size: 1.5em;
+    color: #ff4500;
+    margin: 20px 0;
+  }
+  
+  .question h3 {
+    font-size: 1.5em;
+    color: #333;
+    text-align: center;
+  }
+  
+  .options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .option-button {
+    padding: 10px 20px;
+    margin: 5px 0;
+    font-size: 1em;
+    color: #333;
+    background-color: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+  }
+  
+  .option-button.selected {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+  }
+  
+  .option-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .next-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .next-button:hover {
+    background-color: #0069d9;
+  }
+  
+  .results {
+    text-align: center;
+    background-color: #f3f4f6;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+  }
+  
+  .results h2 {
+    color: #333;
+  }
+  
+  .loading {
+    font-size: 1.5em;
+    color: #333;
+    text-align: center;
+    padding: 40px;
+  }
+  

@@ -3,14 +3,20 @@ import Card from './components/Card';
 import cardData from './data';
 
 function App() {
+  const handleSignInClick = () => {
+    window.location.href = 'https://user-auth-front-end.vercel.app/';
+  };
+
   return (
     <div className="app">
       {/* Navbar */}
       <nav className="navbar">
         <div className="navbar-logo">
-          <span className="logo-text">EXITO</span>
+          <span className="logo-text">Code Camp Fire</span>
         </div>
-        <button className="navbar-signin">Sign In</button>
+        <button className="navbar-signin" onClick={handleSignInClick}>
+          Sign In
+        </button>
       </nav>
 
       {/* Hero Section */}
